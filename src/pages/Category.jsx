@@ -7,14 +7,14 @@ const CategoryPage = (props) => {
 
     const categoryName = useParams().name;
 
-    const prodacts = props.prodacts.filter( (prod) => {
+    const prodactsCat = props.prodacts.filter( (prod) => {
         return prod.category === categoryName;
     });
 
     return (  
         <>
             <h1 className='heading-page'>{categoryName}</h1>
-            <ProdactsSection prodacts = {prodacts} />
+            <ProdactsSection prodacts = {prodactsCat} />
         </>
     );
 }

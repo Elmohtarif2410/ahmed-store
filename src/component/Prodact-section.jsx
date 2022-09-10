@@ -27,7 +27,10 @@ const ProdactSection = (props) => {
                         </div>
                     </div>
                     <h3 className="card-title">{prodact.title}</h3>
-                    <Link to={"/prodacts/" + prodact.id}>dateles</Link>
+                    <div className="box">
+                        <span>{prodact.price}</span>
+                        <Link to={"/prodacts/" + prodact.id}>dateles</Link>
+                    </div>
                 </div>
             </div>
         </section>

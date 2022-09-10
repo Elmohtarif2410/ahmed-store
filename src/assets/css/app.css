@@ -85,7 +85,22 @@ ul {
     font-weight: 500;
 }
 
-.prodact .card a {
+.prodact .card .box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prodact .card .box span {
+    color: var(--text-color)
+}
+
+.prodact .card .box span::after {
+    content: "$";
+    font-weight: bold;
+}
+
+.prodact .card .box a {
     background-color: var(--secound-color);
     color: white;
     opacity: .8;
@@ -93,14 +108,13 @@ ul {
     display: block;
     width: -moz-fit-content;
     width: fit-content;
-    margin-left: auto;
     padding: 7px 15px;
     border-radius: 7px;
     text-decoration: none;
     text-transform: capitalize;
 }
 
-.prodact .card a:hover {
+.prodact .card .box a:hover {
     opacity: 1;
 }
 
@@ -336,6 +350,7 @@ footer a.mansion:hover {
     display: flex;
     margin: 0;
     align-items: center;
+    gap: 15px
 }
 
 .filter .filters li {
@@ -345,7 +360,6 @@ footer a.mansion:hover {
     cursor: pointer;
     transition: var(--main-transition);
     border: 1px solid;
-    margin-right: 15px;
 }
 
 .filter .filters li:last-of-type {margin-right: 0;}
@@ -373,7 +387,6 @@ footer a.mansion:hover {
 
     .filter .filters li {
         padding: 5px;
-        margin-right: 10px;
     }
 
 }

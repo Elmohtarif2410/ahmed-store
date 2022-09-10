@@ -38,7 +38,7 @@ const App = () => {
             (api) => setcategoreis(api.data)
         )
 
-    }, [])
+    }, []);
 
 
     return ( 

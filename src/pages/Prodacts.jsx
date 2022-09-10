@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 import FilterProdacts from '../component/Filter-prodacts';
@@ -7,7 +8,15 @@ import ProdactsSection from '../component/Prodacts-section';
 
 const Prodacts = (props) => {
 
-    const [prodacts, setProdacts] = useState(props.prodacts);
+    const [prodacts, setProdacts] = useState([]);
+
+    useEffect(() => {
+
+        axios.get("https://fakestoreapi.com/products").then(
+            (api) => setProdacts(api.data)
+        )
+
+    }, [])
 
     const filterHandel = (categoryCliked) => {
         
@@ -22,7 +31,6 @@ const Prodacts = (props) => {
 
         setProdacts(props.prodacts);
     }
-
 
     return ( 
         <>
