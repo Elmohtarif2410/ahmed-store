@@ -8,7 +8,7 @@ import { faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons"
 import Logo from  "../assets/images/logo.png";
 
 
-const Header = () => {
+const Header = (props) => {
     return ( 
         <header>
             <div className="container">
@@ -30,6 +30,16 @@ const Header = () => {
                         <li>
                             <NavLink to='/login'>login</NavLink>
                         </li>
+                        {
+                            (props.logged === true) ? (
+                                
+                                <li>
+                                    <NavLink to='/dashboard'>dashboard</NavLink>
+                                </li>
+
+                            ) : null
+                        }
+                        
                     </ul>
 
                     <div className="cart">
