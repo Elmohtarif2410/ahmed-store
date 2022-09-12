@@ -1,6 +1,12 @@
-import React, {useState} from 'react';
+// import main packges 
+import React, { useState, useContext } from 'react';
+
+// import contexts 
+import { ContextAdmin } from '../context/admin-context';
 
 const Login = (props) => {
+
+    const {loginHandel} = useContext(ContextAdmin);
 
     const [username, setusername] = useState("");
     const [password, setpassword] = useState("");
@@ -9,15 +15,15 @@ const Login = (props) => {
         <>
             <section className='login-page' style={{minHeight: "calc(100vh - 148px)"}}>
                 <h1 className='heading-page'>Login</h1>
-                <form className='my-5' onSubmit={(e) => props.loginHandel(e, username, password)}>
+                <form className='my-5' onSubmit={(e) => loginHandel(e, username, password)}>
                     <div className="container">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">username</label>
-                            <input onChange={(e) => setusername(e.target.value)} value={username} type="text" class="form-control" id="username" aria-describedby="username" />
+                        <div className="mb-3">
+                            <label htmlFor="username" className="form-label">username</label>
+                            <input onChange={(e) => setusername(e.target.value)} value={username} type="text" className="form-control" id="username" aria-describedby="username" />
                         </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input onChange={(e) => setpassword(e.target.value)} value={password} type="password" class="form-control" id="password" />
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input onChange={(e) => setpassword(e.target.value)} value={password} type="password" className="form-control" id="password" />
                         </div>
                         <button type="submit" style={buttonStyle}>login</button>
                     </div>

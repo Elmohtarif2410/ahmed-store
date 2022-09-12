@@ -1,7 +1,6 @@
 // import main packges 
-import React, { useState, useEffect }  from 'react';
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { axios } from 'axios';
+import React, { useContext }  from 'react';
+import { Routes, Route } from "react-router-dom";
 
 // import librarys and filles
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -24,77 +23,29 @@ import AdminSection from './component/Admin-section';
 import AdminProdacts from './component/Admin-prodacts';
 import AdminCategories from './component/Admin.categories';
 
-
+// import contexts 
+import { ContextAdmin } from './context/admin-context';
 
 const App = () => {
 
-    const axios = require('axios');
-    const redirect = useNavigate();
-
-    const [prodacts, setProdacts] = useState([]);
-    const [categoreis, setcategoreis] = useState([]);
-
-    const adminUsername = "ahmed";
-    const adminPassword = "ahmed";
-    const [logged, setLogged] = useState(true);
-
-    useEffect( () => {
-
-        axios.get("https://fakestoreapi.com/products").then(
-            (api) => setProdacts(api.data)
-        )
-
-        axios.get("https://fakestoreapi.com/products/categories").then(
-            (api) => setcategoreis(api.data)
-        )
-
-    }, []);
-
-
-    const loginHandel = (e, user, pass) => {
-
-        e.preventDefault();
-
-        if (user === adminUsername && pass === adminPassword) {
-
-            setLogged(true);
-
-            redirect("/admin")
-
-        } else {
-
-            alert("username or password is wrong ")
-        }
-    }
-
-    const logoutHandel = () => {
-
-        setLogged(false);
-
-        redirect("/")
-    }
+    const {logged} = useContext(ContextAdmin);
 
     return ( 
         <>
-            <Header logged = {logged} />
+            <Header />
             <Routes>
-                <Route path='/' element={<Home
-                        prodacts     = {prodacts}
-                        categoreis   = {categoreis}
-                />}/>
-                <Route path='/prodacts' element={<Prodacts
-                        prodacts     = {prodacts}
-                        categoreis   = {categoreis}
-                />} />
-                <Route path='/prodacts/:id' element={<ProdactPage prodacts = {prodacts}/>} />
-                <Route path='/prodacts/category/:name' element={<CategoryPage prodacts = {prodacts}/>} />
-                <Route path='/login' element={<Login loginHandel = {loginHandel} />}/>
+                <Route path='/' element={<Home />}/>
+                <Route path='/prodacts' element={<Prodacts />} />
+                <Route path='/prodacts/:id' element={<ProdactPage />} />
+                <Route path='/prodacts/category/:name' element={<CategoryPage />} />
+                <Route path='/login' element={<Login />}/>
                 {
                     (logged === true) ? (
 
                         <Route path='/dashboard' element={<AdminPage />} > 
-                            <Route path = ""  element={<AdminSection logoutHandel = {logoutHandel} />} />
-                            <Route path = "prodacts"  element={<AdminProdacts prodacts = {prodacts} />} />
+                            <Route path = ""  element={<AdminSection />} />
+                            <Route path = "prodacts"  element={<AdminProdacts />} />
+                            {/* <Route path = "prodacts/add-prodact"  element={<AdminAddProdact/>} /> */}
                             <Route path = "categories"  element={<AdminCategories />}/>
                         </Route>
 

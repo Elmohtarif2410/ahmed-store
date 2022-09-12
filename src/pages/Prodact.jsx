@@ -1,14 +1,20 @@
-import React from 'react';
+// import main packges 
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
-
+// import component
 import RateProdact from '../component/Rate-prodact';
+
+// import context 
+import { ContextProdacts } from '../context/prodacts-context';
 
 const ProdactPage = (props) => {
 
+    const {prodacts} = useContext(ContextProdacts);
+
     const prodactId = useParams().id;
 
-    const prodact = props.prodacts.filter( (prod) => {
+    const prodact = prodacts.filter( (prod) => {
         return prod.id == prodactId
     })[0];
 

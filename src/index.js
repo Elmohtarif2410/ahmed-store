@@ -6,16 +6,29 @@ import { BrowserRouter } from 'react-router-dom';
 // import App component 
 import App from "./App";
 
+// import contexts 
+import ProdactsContext from './context/prodacts-context';
+import CategoreisContext from './context/categoreis-context';
+import AdminContext from './context/admin-context';
 
 // create Root 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
+
 // Rendering
 root.render(
 
         <BrowserRouter>
-            <App />
+            <ProdactsContext>
+                <CategoreisContext>
+                    <AdminContext>
+
+                        <App />
+
+                    </AdminContext>
+                </CategoreisContext>
+            </ProdactsContext>
         </BrowserRouter>
 
 )

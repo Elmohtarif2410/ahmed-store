@@ -1,11 +1,16 @@
-import React from 'react';
+// import main packges 
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 
+// import component
 import ProdactSection from './Prodact-section';
+
+// import contexts 
+import { ContextProdacts } from "../context/prodacts-context";
 
 const CategorySection = (props) => {
 
-    const prodacts = props.prodacts;
+    const {prodacts} = useContext(ContextProdacts);
     const categoryName = props.category;
     let prodactsCategory = prodacts.filter( (prodact) => {
         return prodact.category === categoryName

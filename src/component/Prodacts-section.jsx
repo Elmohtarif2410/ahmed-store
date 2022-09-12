@@ -1,7 +1,8 @@
+// import main packges 
 import React from 'react';
 
+// import component
 import ProdactSection from './Prodact-section';
-
 
 const ProdactsSection = (props) => {
 

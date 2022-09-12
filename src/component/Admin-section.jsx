@@ -1,9 +1,16 @@
-import React from 'react';
+// import main packges 
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
+// import contexts 
+import { ContextAdmin } from '../context/admin-context';
+
 const AdminSection = (props) => {
+
+    const {logoutHandel} = useContext(ContextAdmin);
+
     return ( 
         <section className='admin-section'>
             <h1 className='heading-page'>admin dashbord</h1>
@@ -14,9 +21,9 @@ const AdminSection = (props) => {
                     <li>
                         <NavLink to="categories">categories option</NavLink>
                     </li>
-                    <li onClick={props.logoutHandel}>
+                    <li onClick={logoutHandel}>
                         logout 
-                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                        <FontAwesomeIcon icon={faArrowRightFromBracket} className="ms-2"/>
                     </li>
             </ul>
         </section>

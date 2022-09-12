@@ -1,26 +1,28 @@
-import React, { useState, useEffect } from 'react';
+// import main packges 
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
-
+// import component
 import FilterProdacts from '../component/Filter-prodacts';
 import ProdactsSection from '../component/Prodacts-section';
 
+// import contexts 
+import { ContextProdacts } from '../context/prodacts-context';
+
 const Prodacts = (props) => {
 
+    const prodactsContext = useContext(ContextProdacts).prodacts;
     const [prodacts, setProdacts] = useState([]);
 
     useEffect(() => {
 
-        axios.get("https://fakestoreapi.com/products").then(
-            (api) => setProdacts(api.data)
-        )
+        setProdacts(prodactsContext)    
 
-    }, [])
+    }, [prodactsContext])
 
     const filterHandel = (categoryCliked) => {
         
-        const prodactFiltering = props.prodacts.filter( (prod) => {
+        const prodactFiltering = prodactsContext.filter( (prod) => {
             return prod.category === categoryCliked
         })
 
@@ -29,18 +31,17 @@ const Prodacts = (props) => {
 
     const allFilter = () => {
 
-        setProdacts(props.prodacts);
+        setProdacts(prodactsContext);
     }
 
     return ( 
         <>
             <h1 className="heading-page">Prodacts</h1>
             <FilterProdacts
-                    categoreis     = {props.categoreis}
                     filterHandel   = {filterHandel} 
                     allFilter      = {allFilter}
             />
-            <ProdactsSection prodacts   = {prodacts}/>
+            <ProdactsSection prodacts = {prodacts}/>
             <nav aria-label="Page navigation">
                 <ul className="pagination justify-content-center mb-5">
                     <li className="page-item">

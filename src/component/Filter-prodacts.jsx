@@ -1,8 +1,12 @@
-import React, { useRef } from 'react';
+// import main packges 
+import React, { useContext } from 'react';
+
+// import contexts 
+import { ContextCategoreis } from '../context/categoreis-context';
 
 const FilterProdacts = (props) => {
 
-    const categoreis = props.categoreis;
+    const categoreis = useContext(ContextCategoreis).categoreis;
 
     const filters = categoreis.map( (category) => {
         return <li key={category} onClick={ () => props.filterHandel(category)}>{category}</li>

@@ -1,14 +1,21 @@
-import React from 'react';
+// import main packges 
+import React, {useContext} from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 // icon 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons"
 
+// import files
 import Logo from  "../assets/images/logo.png";
 
+// import contexts 
+import { ContextAdmin } from './../context/admin-context';
 
 const Header = (props) => {
+
+    const {logged} = useContext(ContextAdmin);
+
     return ( 
         <header>
             <div className="container">
@@ -27,17 +34,18 @@ const Header = (props) => {
                         <li>
                             <NavLink to='/prodacts'>prodacts</NavLink>
                         </li>
-                        <li>
-                            <NavLink to='/login'>login</NavLink>
-                        </li>
                         {
-                            (props.logged === true) ? (
+                            (logged === true) ? (
                                 
                                 <li>
                                     <NavLink to='/dashboard'>dashboard</NavLink>
                                 </li>
 
-                            ) : null
+                            ) : (
+                                <li>
+                                    <NavLink to='/login'>login</NavLink>
+                                </li>
+                            )
                         }
                         
                     </ul>
