@@ -22,6 +22,7 @@ import Header from './component/Header';
 import AdminSection from './component/Admin-section';
 import AdminProdacts from './component/Admin-prodacts';
 import AdminCategories from './component/Admin.categories';
+import AdminAddProdact from './component/Admin-add-prodact';
 
 // import contexts 
 import { ContextAdmin } from './context/admin-context';
@@ -45,7 +46,8 @@ const App = () => {
                         <Route path='/dashboard' element={<AdminPage />} > 
                             <Route path = ""  element={<AdminSection />} />
                             <Route path = "prodacts"  element={<AdminProdacts />} />
-                            {/* <Route path = "prodacts/add-prodact"  element={<AdminAddProdact/>} /> */}
+                            <Route path = "prodacts/add-prodact"  element={<AdminAddProdact />} />
+                            <Route path = "prodacts/edit-prodact/:id"  element={<AdminAddProdact />} />
                             <Route path = "categories"  element={<AdminCategories />}/>
                         </Route>
 

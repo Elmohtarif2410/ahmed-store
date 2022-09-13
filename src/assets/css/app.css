@@ -526,23 +526,23 @@ footer a.mansion:hover {
     grid-template-columns: 25% 75%;
 }
 
-.admin-page slide {
+.admin-page aside {
     background-color: #ddd;
     padding: 25px 15px
 }
 
-.admin-page slide h3 {
+.admin-page aside h3 {
     text-transform: capitalize;
     font-size: 22px;
     color: var(--text-color);
 }
 
-.admin-page slide ul.options {
+.admin-page aside ul.options {
     padding: 0;
     margin: 0;
 }
 
-.admin-page slide ul a {
+.admin-page aside ul a {
     text-transform: capitalize;
     text-decoration: none;
     color: var(--main-color);
@@ -553,7 +553,7 @@ footer a.mansion:hover {
     
 }
 
-.admin-page slide ul a:hover {
+.admin-page aside ul a:hover {
     color: var(--secound-color)
 }
 

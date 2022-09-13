@@ -1,12 +1,15 @@
+// import main packges 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content';
 
 export const ContextAdmin = React.createContext();
 
 const AdminContext = (props) => {
 
     const redirect = useNavigate();
+    const MySwal = withReactContent(Swal);
 
     const adminUsername = "ahmed";
     const adminPassword = "ahmed";
@@ -21,11 +24,24 @@ const AdminContext = (props) => {
 
             setLogged(true);
 
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'login success.',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
             redirect("/dashboard")
 
         } else {
 
-            alert("username or password is wrong ")
+            Swal.fire({
+                icon: 'error',
+                title: 'Username and password wrong.',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
     }
 

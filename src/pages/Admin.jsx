@@ -5,7 +5,7 @@ import { NavLink, Outlet, Route, Routes } from 'react-router-dom';
 const AdminPage = () => {
     return (  
         <section className='admin-page'>
-            <slide>
+            <aside>
                 <h3>options</h3>
                 <ul className="options">
                     <li>
@@ -18,7 +18,7 @@ const AdminPage = () => {
                         <NavLink to="categories">categories option</NavLink>
                     </li>
                 </ul>
-            </slide>
+            </aside>
             <article>
                 <Outlet />
             </article>

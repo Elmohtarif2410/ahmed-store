@@ -1,30 +1,33 @@
 // import main packges 
 import React, {useContext} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 // import contexts 
 import { ContextProdacts } from './../context/prodacts-context';
 
 const AdminProdacts = (props) => {
 
+    const redirect = useNavigate();
+
     const {prodacts, adminRemoveProdact} = useContext(ContextProdacts);
 
-    const prodactItem = prodacts.map( (prodact) => {
-        return (
-            <tr key={prodact.id}>
-                <th>{prodact.id}</th>
-                <td className='w-50'>{prodact.title}</td>
-                <td>{prodact.category}</td>
-                <td className='buttons'>
-                    <button className='remove-button' onClick={() => adminRemoveProdact(prodact)}>remove</button>
-                    <button className='edit-button'>edit</button>
-                    <NavLink to={"/prodacts/" + prodact.id} className='view-button'>view</NavLink>
-                </td>
-            </tr>
-        )
-    })
+    const {setTitle, setCategory, setPrice, setImage, setDescription} = useContext(ContextProdacts);
 
+    const clickEditButton = (prodactClicked) => {
 
+        // set inputs faild values by prodact information
+
+        setTitle(prodactClicked.title);
+        setCategory(prodactClicked.category);
+        setPrice(prodactClicked.price);
+        setImage(prodactClicked.image);
+        setDescription(prodactClicked.description);
+
+        // redirect to form edit
+        redirect("edit-prodact/" + prodactClicked.id);
+
+    }
+    
     return ( 
         <section className='admin-prodacts'>
             <h1 className='heading-page'>prodacts</h1>
@@ -40,7 +43,22 @@ const AdminProdacts = (props) => {
                 </thead>
 
                 <tbody>
-                    {prodactItem}
+                    {
+                        prodacts.map( (prodact) => {
+                            return (
+                                <tr key={prodact.id}>
+                                    <th>{prodact.id}</th>
+                                    <td className='w-50'>{prodact.title}</td>
+                                    <td>{prodact.category}</td>
+                                    <td className='buttons'>
+                                        <button className='remove-button' onClick={() => adminRemoveProdact(prodact)}>remove</button>
+                                        <button className='edit-button' onClick={ () => clickEditButton(prodact)}>edit</button>
+                                        <NavLink to={"/prodacts/" + prodact.id} className='view-button'>view</NavLink>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
         </section>
