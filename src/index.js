@@ -1,3 +1,10 @@
+/*
+    Template: Ahmed Store
+    made by : Ahmed Elmohtarif
+    website : https://muhtarif.me
+    date finsh : 17 / 9 / 2022
+*/
+
 // import main packages
 import React from "react";
 import { createRoot } from 'react-dom/client';
@@ -19,8 +26,8 @@ const root = createRoot(rootElement);
 // Rendering
 root.render(
 
-        <BrowserRouter>
-            <ProdactsContext>
+        <BrowserRouter> 
+            <ProdactsContext> 
                 <CategoreisContext>
                     <AdminContext>
 
@@ -30,5 +37,4 @@ root.render(
                 </CategoreisContext>
             </ProdactsContext>
         </BrowserRouter>
-
 )

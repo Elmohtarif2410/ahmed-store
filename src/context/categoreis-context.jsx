@@ -2,10 +2,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
+import axios from 'axios';
 
 // import context
 import { ContextProdacts } from "./prodacts-context";
 
+// export context
 export const ContextCategoreis = React.createContext();
 
 const CategoreisContext = (props) => {

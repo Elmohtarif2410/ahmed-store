@@ -1,8 +1,8 @@
+// import main packges 
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
+// import component
 import RateProdact from './Rate-prodact';
 
 const ProdactSection = (props) => {
@@ -16,16 +16,7 @@ const ProdactSection = (props) => {
                     <img src={prodact.image} className="card-img-top" alt="" />
                 </div>
                 <div className="card-body">
-                    <div className="rate">
-                        <div className="stars">
-                                <RateProdact prodact = {prodact}/>
-                        </div>
-                        <div className="text">
-                            by 
-                            <span>{prodact.rating.count}</span>
-                            reveiwer
-                        </div>
-                    </div>
+                    <RateProdact prodact = {prodact}/>
                     <h3 className="card-title">{prodact.title}</h3>
                     <div className="box">
                         <span>{prodact.price}</span>

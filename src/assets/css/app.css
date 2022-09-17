@@ -1,5 +1,18 @@
+/* 
+    Template: Ahmed Store
+    made by : Ahmed Elmohtarif
+    website : https://muhtarif.me
+    date finsh : 17 / 9 / 2022
+*/
+
+/************************************************************
+******************* global styling **************************
+************************************************************/
+
+/* import font open-sans from goolge fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700&display=swap');
 
+/* set main varible  */
 :root {
     --main-color: #01a0e9;
     --secound-color: #ff9800;
@@ -8,6 +21,8 @@
     --background-color: #f6f6f6;
     --text-color: #686159;
 }
+
+/* glopal rowls */
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -21,6 +36,10 @@ a {
     text-decoration: none;
     color: inherit
 }
+
+/************************************************************
+******************* component style *************************
+************************************************************/
 
 /* heading-page Component */
 
@@ -66,30 +85,6 @@ a {
     text-overflow: ellipsis;
 }
 
-.prodact .card .rate {
-    display: flex;
-    justify-content: space-between;
-}
-
-.prodact .card .rate .stars {
-    color: #ffc107
-}
-
-.prodact .card .rate .text {
-    color: var(--text-color);
-    font-style: italic;
-    font-size: 14px;
-}
-
-.prodact .rate .text span {
-    color: var(--main-color);
-    margin-left: 5px;
-    margin-right: 5px;
-    font-style: normal;
-    font-size: 16px;
-    font-weight: 500;
-}
-
 .prodact .card .box {
     display: flex;
     align-items: center;
@@ -123,22 +118,74 @@ a {
     opacity: 1;
 }
 
+/* rate commponet  */
+.rate {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rate .stars {
+    color: #ffc107
+}
+
+.rate .text {
+    color: var(--text-color);
+    font-style: italic;
+    font-size: 14px;
+}
+
+.rate .text span {
+    color: var(--main-color);
+    margin-left: 5px;
+    margin-right: 5px;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/************************************************************
+******************* header & footer *************************
+************************************************************/
+
 /* Start style header */
 
 header {
     background-color: var(--secound-color);
 }
 
-header .container {
+header .navbar {
+    padding: 0
+}
+
+header .navbar .container {
     min-height: 74px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 header .navbar .navbar-brand img{
     width: 120px;
 }
+
+header .navbar .navbar-toggler {
+    font-size: 22px;
+    border: none;
+    box-shadow: none;
+}
+
+header .navbar .navbar-collapse {
+    justify-content: flex-end;
+}
+
+header .navbar .navbar-collapse .nav-link {
+    text-transform: capitalize;
+    font-size: 18px;
+    transition: var(--main-transition);
+}
+
+header .navbar .navbar-collapse .nav-link:hover,
+header .navbar .navbar-collapse .nav-link.active {
+    color: var(--main-color);
+}
+
 
 /* End style header */
 
@@ -403,11 +450,6 @@ footer a.mansion:hover {
 .information .content .propirty.price p::after {
     content: "$";
     font-weight: bold;
-}
-
-.information .content .rate {
-    color: #ffc107;
-    height: fit-content;
 }
 
 .information .image {

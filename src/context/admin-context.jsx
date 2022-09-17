@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content';
 
+// export context
 export const ContextAdmin = React.createContext();
 
 const AdminContext = (props) => {
@@ -13,7 +14,7 @@ const AdminContext = (props) => {
 
     const adminUsername = "ahmed";
     const adminPassword = "ahmed";
-    const [logged, setLogged] = useState(true);
+    const [logged, setLogged] = useState(false);
 
 
     const loginHandel = (e, user, pass) => {

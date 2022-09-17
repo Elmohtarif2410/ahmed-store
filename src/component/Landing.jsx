@@ -1,5 +1,7 @@
+// import main packges 
 import React from 'react';
 
+// import images
 import Landing1 from "../assets/images/landing-1.jpg";
 import Landing2 from "../assets/images/landing-2.jpg";
 import Landing3 from "../assets/images/landing-3.jpg";

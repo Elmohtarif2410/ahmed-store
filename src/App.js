@@ -30,6 +30,7 @@ import { ContextAdmin } from './context/admin-context';
 
 const App = () => {
 
+    // login state => trur & false
     const {logged} = useContext(ContextAdmin);
 
     return ( 

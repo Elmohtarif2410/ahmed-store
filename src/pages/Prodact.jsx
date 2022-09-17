@@ -1,22 +1,36 @@
 // import main packges 
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 // import component
 import RateProdact from '../component/Rate-prodact';
 
-// import context 
-import { ContextProdacts } from '../context/prodacts-context';
-
 const ProdactPage = (props) => {
 
-    const {prodacts} = useContext(ContextProdacts);
+    const axios = require("axios")
 
     const prodactId = useParams().id;
 
-    const prodact = prodacts.filter( (prod) => {
-        return prod.id == prodactId
-    })[0];
+    const [prodact, setProdact] = useState({
+        title: "", 
+        category: "",
+        price: "", 
+        image: "",
+        description: "",
+        rating: {
+            rate: 0,
+            count: 0
+        }
+    });
+
+    
+    useEffect( () => {
+
+        axios.get("http://fakestoreapi.com/products/" + prodactId).then(
+            api => setProdact(api.data)
+        )
+    }, [])
 
     return (  
         <>
@@ -28,9 +42,7 @@ const ProdactPage = (props) => {
                             <h3>category</h3>
                             <p>{prodact.category}</p>
                         </div>
-                        <div className="rate">
-                            <RateProdact prodact = {prodact}/>
-                        </div>
+                        <RateProdact prodact = {prodact}/>
                         <div className="propirty">
                             <h3 className='mb-2'>description</h3>
                             <p>{prodact.description}</p>

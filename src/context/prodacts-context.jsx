@@ -5,6 +5,7 @@ import axios from 'axios';
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content';
 
+// export context
 export const ContextProdacts = React.createContext();
 
 const ProdactsContext = (props) => {
