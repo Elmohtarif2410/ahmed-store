@@ -30,6 +30,7 @@ const AdminAddProdact = () => {
 
     const prodactId = useParams().id;
 
+    // on submit function => add or edit
     const onSubmitFuction = (e) => {
 
         if (location.includes("add-prodact")) {

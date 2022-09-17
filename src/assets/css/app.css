@@ -136,81 +136,8 @@ header .container {
     align-items: center;
 }
 
-header .brand img {
+header .navbar .navbar-brand img{
     width: 120px;
-}
-
-header nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-header nav .toggler-icon {
-    font-size: 20px;
-    cursor: pointer;
-    display: none;
-}
-
-header nav .links {
-    display: flex;
-    margin: 0;
-}
-
-header nav .links a {
-    display: block;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: var(--text-color);
-    padding: 25px;
-    transition: var(--main-transition);
-}
-
-header nav .links a:hover,
-header nav .links a.active {
-    color: var(--main-color)
-}
-
-header nav .cart {
-    font-size: 20px;
-    cursor: pointer;
-    transition: var(--main-transition);
-    color: black;
-    margin-left: 25px;
-}
-
-header nav .cart:hover {
-    color: var(--main-color);
-}
-
-@media(max-width: 767px) {
-    header nav .toggler-icon {
-        display: block;
-    }
-
-    header nav .toggler-icon.open ~ .links {
-        width: 250px;
-    }
-
-    header nav .links {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background-color: var(--main-color);
-        width: 0;
-        padding: 25px 0;
-        overflow: hidden;
-        flex-direction: column;
-        transition: var(--main-transition);
-    }
-
-    header nav .links a {
-        color: white;
-        padding: 15px 25px;
-    }
-
-    header nav .links a:hover {color: var(--secound-color)}
 }
 
 /* End style header */
@@ -523,7 +450,7 @@ footer a.mansion:hover {
 .admin-page {
     min-height: calc(100vh - 148px);
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 30% 70%;
 }
 
 .admin-page aside {
@@ -550,15 +477,50 @@ footer a.mansion:hover {
     display: block;
     padding: 15px 0 0 15px;
     transition: var(--main-transition);
-    
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .admin-page aside ul a:hover {
     color: var(--secound-color)
 }
 
+.admin-page aside ul a svg {
+    background-color: #ccc;
+    width: 20px;
+    height: 20px;
+    padding: 7px;
+    border-radius: 50%;
+    color: black;
+    transition: var(--main-transition);
+}
+
+.admin-page aside ul a:hover svg {
+    color: var(--secound-color)
+}
+
 .admin-page article {
     padding: 25px
+}
+
+@media (max-width: 767px) {
+
+    .admin-page {
+        grid-template-columns: auto 1fr;
+    }
+
+    .admin-page aside h3 {
+        display: none;
+    }
+
+    .admin-page aside ul a {
+        padding-left: 0;
+    }
+
+    .admin-page aside ul a span {
+        display: none;
+    }
 }
 
 /* end style admin-page */

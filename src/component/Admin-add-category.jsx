@@ -1,5 +1,5 @@
 // import main packges 
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
 // import contexts 
@@ -7,9 +7,35 @@ import { ContextCategoreis } from '../context/categoreis-context';
 
 const AdminAddCategory = () => {
 
-    const {categoryName, setCategoryName, adminAddCategory} = useContext(ContextCategoreis);
+    const {categoryName, setCategoryName, adminAddCategory, adminEditCategory} = useContext(ContextCategoreis);
 
     const location = useLocation().pathname;
+
+    const thisCategory = useParams().name;
+
+    // set input fild vlue by params name
+    useEffect( () => {
+
+        if (location.includes("edit-category")) {
+            setCategoryName(thisCategory)
+        }
+
+    }, []);
+
+    // on submit function => add or edit
+
+    const onSubmitFuction = (e) => {
+
+        if (location.includes("add-category")) {
+
+            adminAddCategory(e)
+
+        } else {
+
+            adminEditCategory(e, thisCategory)
+
+        }
+    }
 
     return (
         <>
@@ -22,7 +48,7 @@ const AdminAddCategory = () => {
             }
 
             <section className='add-category'>
-                <form className='my-5' onSubmit={e => adminAddCategory(e)}>
+                <form className='my-5' onSubmit={e => onSubmitFuction(e)}>
                     <div className="container">
                         <div className="mb-3">
                             <label htmlFor="category_name" className="form-label">category name</label>

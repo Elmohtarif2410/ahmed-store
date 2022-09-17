@@ -34,7 +34,7 @@ const AdminProdacts = (props) => {
             <NavLink to="add-prodact" className="add-prodact">add prodact</NavLink>
             <table className="table">
                 <thead>
-                    <tr>
+                    <tr className="d-flex d-sm-table-row flex-wrap">
                         <th>#</th>
                         <th>Name</th>
                         <th>category</th>
@@ -46,7 +46,7 @@ const AdminProdacts = (props) => {
                     {
                         prodacts.map( (prodact) => {
                             return (
-                                <tr key={prodact.id}>
+                                <tr className="d-flex d-sm-table-row flex-wrap" key={prodact.id}>
                                     <th>{prodact.id}</th>
                                     <td className='w-50'>{prodact.title}</td>
                                     <td>{prodact.category}</td>

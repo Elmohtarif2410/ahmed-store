@@ -86,6 +86,7 @@ const ProdactsContext = (props) => {
         })
     }
 
+    // function remove prodact
     const adminAddProdact = (e) => {
 
         e.preventDefault();
@@ -192,6 +193,7 @@ const ProdactsContext = (props) => {
         setImage("");
         setDescription("");
 
+        // show alert success Prodact Edit
         Swal.fire({
             icon: 'success',
             title: 'Prodact Edit.',
@@ -204,18 +206,35 @@ const ProdactsContext = (props) => {
 
     }
 
+    // fuction change category prodact when edit category
+    const changeProdactsCategry = (oldCategry, newCategory) => {
+
+        // prodact filter
+        let prodactsCategory = prodacts.filter( (prodact) => (
+            prodact.category === oldCategry
+        ))
+
+        // edit => change category prodact
+        prodactsCategory = prodactsCategory.forEach( (prodact) => {
+
+            // set prodact category
+            prodact.category = newCategory
+        })
+    }
+
     return (  
         <ContextProdacts.Provider value={{
                 prodacts,
                 adminRemoveProdact, 
                 adminAddProdact,
                 adminEditProdact,
-                title, setTitle,
-                category, setCategory,
-                price, setPrice,
-                image, setImage,
+                changeProdactsCategry,
+                title,       setTitle,
+                category,    setCategory,
+                price,       setPrice,
+                image,       setImage,
                 description, setDescription
-            }}>
+        }}>
             {props.children}
         </ContextProdacts.Provider>
     );

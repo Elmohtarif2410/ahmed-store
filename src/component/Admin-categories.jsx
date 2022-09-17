@@ -27,7 +27,7 @@ const AdminCategories = () => {
             <NavLink to="add-category" className="add-category">add categories</NavLink>
             <table className="table">
             <thead>
-                    <tr>
+                    <tr className="d-flex d-sm-table-row flex-wrap">
                         <th>#</th>
                         <th>Name</th>
                         <th>prodacts length</th>
@@ -38,7 +38,7 @@ const AdminCategories = () => {
                     {
                         categoreis.map( (category, index) => {
                             return (
-                                <tr key={category}>
+                                <tr className="d-flex d-sm-table-row flex-wrap" key={category}>
                                     <th>{index + 1}</th>
                                     <td>{category}</td>
                                     <td>{prodactsCategory(category)}</td>

@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+// import main packges 
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import Swal from "sweetalert2";
+
+// import context
+import { ContextProdacts } from "./prodacts-context";
 
 export const ContextCategoreis = React.createContext();
 
@@ -100,14 +103,47 @@ const CategoreisContext = (props) => {
         redirect('/dashboard/categories');
     }
 
+    const {changeProdactsCategry} = useContext(ContextProdacts);
+
     // function edit category
-    const adminEditCategory = (e) => {
+    const adminEditCategory = (e, thisCategory) => {
         // not reload page 
         e.preventDefault();
+
+        // clone
+        let categoriesAfterEdit = [...categoreis]
+
+        // deap clone
+        const categoryEdit = categoriesAfterEdit.filter( (category) => (
+            category == thisCategory
+        ))[0];
+
+        // Edit
+        categoriesAfterEdit[categoriesAfterEdit.indexOf(categoryEdit)] = categoryName;
+
+        // set state
+        setCategoreis(categoriesAfterEdit);
+
+        // set inputs value
+        setCategoryName("");
+
+        // set prodacts => category 
+        changeProdactsCategry(thisCategory, categoryName);
+
+        // show alert success category Edit
+        Swal.fire({
+            icon: 'success',
+            title: 'category Edit.',
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+        // redirect to categories admin page
+        redirect('/dashboard/categories');
     }
 
     return (  
-        <ContextCategoreis.Provider value={{categoreis, adminRemoveCategory, adminAddCategory, categoryName, setCategoryName}}>
+        <ContextCategoreis.Provider value={{categoreis, adminRemoveCategory, adminAddCategory, adminEditCategory, categoryName, setCategoryName}}>
             {props.children}
         </ContextCategoreis.Provider>
     );
