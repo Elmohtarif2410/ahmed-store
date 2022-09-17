@@ -21,8 +21,9 @@ import Footer from './component/Footer';
 import Header from './component/Header';
 import AdminSection from './component/Admin-section';
 import AdminProdacts from './component/Admin-prodacts';
-import AdminCategories from './component/Admin.categories';
+import AdminCategories from './component/Admin-categories';
 import AdminAddProdact from './component/Admin-add-prodact';
+import AdminAddCategory from './component/Admin-add-category';
 
 // import contexts 
 import { ContextAdmin } from './context/admin-context';
@@ -49,6 +50,8 @@ const App = () => {
                             <Route path = "prodacts/add-prodact"  element={<AdminAddProdact />} />
                             <Route path = "prodacts/edit-prodact/:id"  element={<AdminAddProdact />} />
                             <Route path = "categories"  element={<AdminCategories />}/>
+                            <Route path = "categories/add-category"  element={<AdminAddCategory />} />
+                            <Route path = "categories/edit-category/:id"  element={<AdminAddCategory />} />
                         </Route>
 
                     ) : null

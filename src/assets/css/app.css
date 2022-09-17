@@ -643,3 +643,55 @@ footer a.mansion:hover {
 .admin-page .admin-prodacts .buttons .view-button {background-color: #2196f3}
 
 /* end style admin prodacts */
+
+/* Start style admin categories */
+
+.admin-categories .add-category {
+    display: block;
+    width: fit-content;
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: var(--main-color);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 7px;
+    margin-bottom: 35px;
+    opacity: .8;
+    transition: var(--main-transition);
+}
+
+.admin-categories .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.admin-categories .buttons button,
+.admin-categories .buttons a {
+    outline: none;
+    border: none;
+    background-color: #333;
+    color: white;
+    opacity: .8;
+    transition: var(--main-transition);
+    display: block;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 7px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.admin-categories .buttons button:hover,
+.admin-categories .buttons a:hover {
+    opacity: 1;
+}
+
+.admin-categories .buttons .remove-button {background-color: #e91e63}
+.admin-categories .buttons .edit-button {background-color: #009688}
+.admin-categories .buttons .view-button {background-color: #2196f3}
+
+/* End style admin categories */
+

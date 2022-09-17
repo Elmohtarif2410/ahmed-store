@@ -32,6 +32,7 @@ const ProdactsContext = (props) => {
     const [image, setImage]             = useState("");
     const [description, setDescription] = useState("");
 
+    // function remove prodact
     const adminRemoveProdact = (prodactRemove) => {
 
         // clone server
@@ -135,6 +136,7 @@ const ProdactsContext = (props) => {
         setImage("");
         setDescription("");
 
+        // massege => done
         Swal.fire({
             icon: 'success',
             title: 'Prodact Add.',
