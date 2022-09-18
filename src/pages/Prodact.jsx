@@ -27,7 +27,7 @@ const ProdactPage = (props) => {
     
     useEffect( () => {
 
-        axios.get("http://fakestoreapi.com/products/" + prodactId).then(
+        axios.get("https://fakestoreapi.com/products/" + prodactId).then(
             api => setProdact(api.data)
         )
     }, [])
